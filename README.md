@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# <img src="https://github.com/micanevoran/SOLENA/blob/master/img/logo.svg" alt="SOLENA - Soluciones Energéticas Ambientales" width=25%>
+<img src="https://img.shields.io/badge/STATUS-EN%20DESAROLLO-green">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto fue creado con [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Se trata de un e-commerce dedicado a la venta de productos relacionados a energía solar. 
 
-In the project directory, you can run:
+## Librerías Utilizadas
 
-### `npm start`
+- [react-router-dom](https://reactrouter.com/en/main): librería utilizada para definir las rutas de navegación dentro de la aplicación
+- [Firebase](https://firebase.google.com): plataforma de servicios utilizada para el almacenamiento de la información relativa a los productos disponibles para la venta, y también para la generación y almacenamiento de órdenes a partir delas compras realizadas por el usuario. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Funcionalidades del Proyecto
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+En la pagina principal del proyecto se puede visualizar el listado de productos disponibles para la compra. 
 
-### `npm test`
+En la barra superior de navegación, se puede acceder a las distintas categorías de productos, para obtener una lista de productos filtrada según se correspondan con la característica seleccionada.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Al presionar en el botón "ver detalle" de un producto, se puede acceder a la información del producto, con la posibilidad de agregar al carrito la cantidad requerida del producto seleccionado. No se podrá aumentar la cantidad seleccionada de un producto cuando ésta supere el stock disponible para el mismo. 
 
-### `npm run build`
+Una vez agregado el producto, se ofrece al usuario ir al carrito o seguir agregando productos. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+A medida que el usuario vaya agregando productos, en el ícono de carrito (ubicado en la esquina superior derecha de la barra superior de navegación) se podrá visualizar la cantidad de unidades que el usuario tiene en el carrito hasta el momento. 
+El carrito es accesible en todo momento para el usuario, donde podrá ver el detalle de los productos que tiene en él y, en caso de que aún esté vacío, se le mostrará un link hacia la página principal de la aplicación, para que comience a agregar productos. Aquí también el usuario podrá visualizar el total a pagar por el carrito armado y podrá eliminar cualquier producto agregado o eliminar todos los productos del carrito a la vez. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Una vez que el usuario esté conforme con los productos agregados al carrito, podrá continuar al checkout de la compra, donde se le pedirá que complete sus datos para generar la orden. No podrá enviar el formulario si alguno de los campos está vacío o si el mail no coincide en los dos campos donde se lo solicita. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Una vez enviado el formulario, se genera una orden de compra, cuyo ID es compartido al usuario para poder darle trackeabilidad a su pedido. 
 
-### `npm run eject`
+## Acceso al Deploy del Proyecto
+Se puede acceder al deploy del proyecto desde el siguiente [Link](https://loquacious-froyo-b5b8b3.netlify.app/).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Pasos para levantar el proyecto en local
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1.  Clonar el repositorio
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+git clone https://github.com/micanevoran/SOLENA-react.git
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. Instalar las dependencias
 
-## Learn More
+```
+npm install react-router-dom
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+npm install firebase
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Correr el proyecto en el navegador
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+npm start
+```
