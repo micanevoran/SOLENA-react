@@ -52,6 +52,7 @@
 }
 
 .navBar{
+    width: 100%;
     background-color: rgba(136,180,164,0.9);
     font-family: "Quicksand", sans-serif;
     font-size: 1.1rem;
@@ -80,6 +81,14 @@
             width: 30px;
             margin-left: 2vw;
         }
+        .unidadesCarrito{
+            font-family: "Quicksand", sans-serif;
+            font-size: 1rem;
+            background-color:rgb(25, 86, 46);
+            color: white;
+            border-radius: 100%;
+            padding: .3vh .5vw;
+        }
     }
     button{
         @extend .button;
@@ -88,8 +97,10 @@
 }
 main{
     width: 100vw;
+    min-height: 79.5vh;
+    margin: 0;
     .prodContainer{
-        width: 100%;
+        width: 90%;
         @include display-flex(column, stretch, center);
         .productFigure{
             width: 90%;
@@ -154,11 +165,12 @@ main{
 
 .itemDetail{
     @include display-flex(row, center, center);
-    margin-top: 12vh;
-    margin-bottom: 15vh;
+    padding-top: 6vh;
+    padding-bottom: 6vh;
     img{
         width: 250px;
         margin-left: 2vw;
+        margin-right: 5vw
     }
     article{
         @include display-flex(column, center, start);
@@ -169,13 +181,21 @@ main{
             font-weight: 700;
         }
         .contador{
+            text-align: center;
+            p{
+                font-size: 1.1rem;
+                font-weight: 700;
+                text-align: center;
+            }
             button{
                 font-family: "Quicksand", sans-serif;
                 font-size: 1rem;
+                font-weight: 700;
                 color: rgb(243, 243, 243);
                 width: 30px;
                 height: 30px;
                 margin-right: 0.5vw;
+                margin-bottom: 2vh;
                 border-radius: 5px;
                 border: none;
                 background: rgb(82, 182, 154);
@@ -189,10 +209,161 @@ main{
                 }
             }
         }
+        .addProd{
+            @extend .button;
+            margin-left: 1.5vw;
+            font-weight: 700
+        }
+    }
+}
+
+.seguirComprando{
+    @include display-flex(column, space-around, start);
+    
+}
+
+.carritoVacío{
+    text-align: center;
+    font-family: "Quicksand", sans-serif;
+    font-size: 1.2rem;
+    padding-top: 20vh;
+    margin: 0;
+
+}
+
+.prodAgregadoCabecera{
+    @include display-flex(row, center, center);
+    margin: 0 3vw;   
+    border-bottom: .01em solid grey;
+    font-family: "Quicksand", sans-serif;
+    font-size: 1.2rem;
+    .prodImgTitleCabecera{
+        width: 60%;
+    }
+    .prodPrecioCabecera{
+        width: 20%;
+    }
+    .prodCantidadCabecera{
+        @include display-flex(row, center, center);
+        width: 40%;
+    }
+}
+.prodAgregado{
+    @include display-flex(row, space-around, center);
+    margin: 0 3vw;
+    padding: 0;
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.8rem;
+    .prodImgTitle{
+        width: 60%;
+        img{
+            width: 10vw;
+            max-width: 100px;
+        }
+    }
+    .prodPrecio{
+        width: 20%;
+        font-size: 1rem;
+    }
+    .prodCantidad{
+        @include display-flex(row, center, center);
+        width: 40%;
+        h3{
+            margin-right: 1.5vw;
+            font-size: 1.2rem;
+        }
+        .deleteOneBtn{
+            color: white;
+            font-family: "Quicksand", sans-serif;
+            font-weight: 700    ;
+            background-color: rgb(198, 19, 19);
+            padding: 4px 8px;
+            border: solid grey .01em;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.finalizarCompra{
+    @include display-flex(column, center, center);
+    border-top: .01em solid grey;
+    margin: 3vh 3vw;
+    .total{
+        font-family: "Quicksand", sans-serif;
+        font-size: 1.5rem;
+    }
+    .button{
+        font-size: 1rem;
+        margin-bottom: 1vh;
+    }
+    .deleteAllBtn{
+        font-family: "Quicksand", sans-serif;
+        font-size: 1rem;
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 1vh;
+        &:hover{
+            color: white;
+            background-color: rgb(156, 153, 153);
+            cursor: pointer;
+        }
+    }
+}
+
+.checkoutTitle1{
+    font-family: "Quicksand", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-align: center;
+}
+.checkoutTitle2{
+    font-family: "Quicksand", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-align: center;
+}
+.checkoutScreen{
+    padding-top: 5vh;
+    width: 100%;
+    .checkoutForm{
+        @include display-flex(column, center, center);
+        width: 100%;
+        margin: 0;
+        input{
+            font-family: "Quicksand", sans-serif;
+            font-size: 1rem;
+            width: 50vw;
+            height: 5vh;
+            margin: 1vh 0;
+        }
+        button{
+            font-family: "Quicksand", sans-serif;
+            font-size: 1rem;
+            margin-top: 2vh;
+            cursor: pointer;
+            &:disabled{
+                background-color: lightgray;
+                cursor: none;
+            }
+        }
+    }
+}
+
+.compraFinalizada{
+    margin: 0;
+    font-family: "Quicksand", sans-serif;
+    text-align: center;
+    font-size: 1rem;
+    h1{
+        margin:0;
+        padding-top: 5vh;
     }
 }
 
 .footer{
+    width: 100%;
     background-color: rgba(136,180,164,0.9);
     height: 9vh;
     display: flex;
@@ -200,7 +371,7 @@ main{
     align-items: center;
     .footerIcon{
         height: 6vh;
-        margin-top: 1vh;
+        padding-top: 1vh;
         margin-right: 1vw;
         opacity: 0.8;
         &:hover{

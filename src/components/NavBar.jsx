@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../img/logo.svg';
-import Button from './Button';
 import CartWidget from './CartWidget';
 
 const NavBar = () => {
@@ -15,7 +14,6 @@ const NavBar = () => {
             <NavLink className= "links" to="category/termotanques-solares"><li>Termotanques Solares</li></NavLink>
             <NavLink className= "links" to="category/accesorios"><li>Accesorios</li></NavLink>
             <NavLink to="/cart"><li><CartWidget/></li></NavLink>
-            <li><Button BtnText={"Ingresar"}/></li>
         </ul>
     </nav>
   )

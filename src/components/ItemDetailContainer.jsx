@@ -1,30 +1,30 @@
 import React, { useState , useEffect } from 'react'
-import {products} from '../mock/products.js';
 import ItemDetail from './ItemDetail';
-import {useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { doc, getDoc } from 'firebase/firestore'
+import { collectionProd } from '../services/firebaseConfig';
 
 const ItemDetailContainer = () => {
   const [item, setItem] = useState({});
+  const [loading, setLoading] = useState(true)
   const { prodId } = useParams();
 
   useEffect(() => {
-    const getProduct = (prodId) => {
-      return new Promise((res, rej) => {
-          const product = products.find((prod) => prod.id === prodId);
-          setTimeout(() => {
-              res(product);
-          }, 1000);
-      });
-    };
-    getProduct(Number(prodId))
-    .then((res) => setItem(res))
+    const prod = doc(collectionProd, prodId)
+    getDoc(prod)
+    .then((res) => setItem({id: res.id, ...res.data()}))
     .catch((error) => console.log(error))
+    .finally(() => setLoading(false))
   }, [prodId]);
 
+  if (loading){
+    return <main>Cargando...</main>
+  }
+
   return (
-      <div>
+      <main>
           <ItemDetail item={item}/>
-      </div>
+      </main>
   );
 };
 
